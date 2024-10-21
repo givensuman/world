@@ -1,3 +1,3 @@
 ### world
 
-![The World tarot card]("./assets/theworld.png")
+<img src="./assets/theworld.png" alt="The World tarot card" />
