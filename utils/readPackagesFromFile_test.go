@@ -1,7 +1,11 @@
 package utils
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestReadPackagesFromFile(t *testing.T) {
-	ReadPackagesFromFile()
+	strs := ReadPackagesFromFile("packages")
+	fmt.Print(strs)
 }

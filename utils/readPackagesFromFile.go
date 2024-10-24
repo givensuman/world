@@ -1,16 +1,23 @@
 package utils
 
 import (
-	"fmt"
 	"io/fs"
 	"os"
 	"strings"
 )
 
-func ReadPackagesFromFile() {
-	filesystem := os.DirFS("/home/given/")
+func ReadPackagesFromFile(filename string) []string {
+	fsys := os.DirFS(GetWorldDir())
 
-	bytes, _ := fs.ReadFile(filesystem, ".world/packages")
+	data, err := fs.ReadFile(fsys, filename)
+	if err != nil {
+		panic(err)
+	}
 
-	fmt.Println(strings.Split(string(bytes), "\n"))
+	packages := strings.Split(string(data), "\n")
+	for i := 0; i < len(packages); i++ {
+		packages[i] = strings.TrimSpace(packages[i])
+	}
+
+	return packages
 }

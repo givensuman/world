@@ -7,7 +7,6 @@ import (
 	"github.com/Jguer/go-alpm/v2"
 	cli "github.com/urfave/cli/v2"
 
-	// "github.com/JoshuaDoes/alpm-go/v2"
 	paconf "github.com/Morganamilo/go-pacmanconf"
 )
 
@@ -23,6 +22,8 @@ func main() {
 		print(err)
 		os.Exit(1)
 	}
+
+	world := World.Init(PacmanConfig)
 
 	app := &cli.App{
 		Name:  "world",
